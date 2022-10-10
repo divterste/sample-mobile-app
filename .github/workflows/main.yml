@@ -49,7 +49,7 @@ jobs:
         - name: Build the app
           run: ./gradlew build
           
-        - uses: actions/android-build-action@v1.0.0
+        - uses: sparkfabrik/android-build-action@v1.0.0
           with:
             project-path: android
             output-path: my-app.apk
