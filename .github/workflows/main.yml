@@ -32,13 +32,6 @@ jobs:
               IPHONEOS_DEPLOYMENT_TARGET=9.0
               PROVISIONING_PROFILE="UUID HERE" \
               CODE_SIGN_IDENTITY="iPhone Distribution:Some Company (T343ff)"
-              
-        - name: Export app
-          run: |
-            xcodebuild \
-            -exportArchive \
-            -archivePath $PWD/build/appname.xcarchive \
-            -exportPath $PWD/build
 
     # This workflow contains a single job called "build"
     Google:
@@ -54,7 +47,7 @@ jobs:
           run: gradle init
 
         - name: Build the app
-          run: ./gradlew build
+          run: ./gradlew assembleRelease
       
         
         
