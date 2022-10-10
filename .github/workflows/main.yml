@@ -32,6 +32,13 @@ jobs:
               IPHONEOS_DEPLOYMENT_TARGET=9.0
               PROVISIONING_PROFILE="UUID HERE" \
               CODE_SIGN_IDENTITY="iPhone Distribution:Some Company (T343ff)"
+              
+        - name: Export Archive
+          run: |
+            xcodebuild -exportArchive \
+              -archivePath DerivedData/Archive/appname.xcarchive \
+              -exportOptionsPlist provisioning/App-Store.plist \
+              -exportPath DerivedData/ipa
 
     # This workflow contains a single job called "build"
     Google:
