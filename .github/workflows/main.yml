@@ -24,13 +24,14 @@ jobs:
         - name: Build app
           run:
             cd ios && xcodebuild archive \
-            -workspace appname.xcworkspace \
-            -scheme appname \
-            -sdk iphoneos13.2 \
-            -configuration Release \
-            IPHONEOS_DEPLOYMENT_TARGET=9.0
-            PROVISIONING_PROFILE="UUID HERE" \
-            CODE_SIGN_IDENTITY="iPhone Distribution:Some Company (T343ff)"
+              -workspace appname.xcworkspace \
+              -scheme appname \
+              -sdk iphoneos13.2 \
+              -configuration Release \
+              -archivePath $PWD/build/appname.xcarchive \
+              IPHONEOS_DEPLOYMENT_TARGET=9.0
+              PROVISIONING_PROFILE="UUID HERE" \
+              CODE_SIGN_IDENTITY="iPhone Distribution:Some Company (T343ff)"
 
     # This workflow contains a single job called "build"
     Google:
