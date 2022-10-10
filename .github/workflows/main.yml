@@ -38,7 +38,6 @@ jobs:
             xcodebuild \
             -exportArchive \
             -archivePath $PWD/build/appname.xcarchive \
-            -exportOptionsPlist $PWD/ci.plist \
             -exportPath $PWD/build
 
     # This workflow contains a single job called "build"
