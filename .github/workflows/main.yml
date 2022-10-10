@@ -35,7 +35,7 @@ jobs:
               
         - name: Export app
           run: |
-            cd ios && xcodebuild \
+            xcodebuild \
             -exportArchive \
             -archivePath $PWD/build/appname.xcarchive \
             -exportOptionsPlist $PWD/ci.plist \
