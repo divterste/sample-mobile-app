@@ -47,15 +47,7 @@ jobs:
           run: gradle init
 
         - name: Build the app
-          run: ./gradlew build
-          
-        - uses: sparkfabrik/android-build-action@v1.0.0
-          with:
-            project-path: android
-            output-path: my-app.apk
-            browserstack-upload: true
-            browserstack-username: ${{ secrets.BROWSERSTACK_USERNAME }}
-            browserstack-access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          run: ./gradlew assemble
       
         
         
