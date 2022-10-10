@@ -32,6 +32,14 @@ jobs:
               IPHONEOS_DEPLOYMENT_TARGET=9.0
               PROVISIONING_PROFILE="UUID HERE" \
               CODE_SIGN_IDENTITY="iPhone Distribution:Some Company (T343ff)"
+              
+        - name: Export app
+          run: |
+            cd ios && xcodebuild \
+            -exportArchive \
+            -archivePath $PWD/build/appname.xcarchive \
+            -exportOptionsPlist $PWD/ci.plist \
+            -exportPath $PWD/build
 
     # This workflow contains a single job called "build"
     Google:
@@ -48,20 +56,6 @@ jobs:
 
         - name: Build the app
           run: ./gradlew build
-          
-        # Create APK Debug
-        - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
-          run: ./gradlew assembleDebug
-
-        # Create APK Release
-        - name: Build apk release project (APK) - ${{ env.main_project_module }} module
-          run: ./gradlew assemble
-
-        # Create Bundle AAB Release
-        # Noted for main module build [main_project_module]:bundleRelease
-        - name: Build app bundle release (AAB) - ${{ env.main_project_module }} module
-          run: ./gradlew ${{ env.main_project_module }}:bundleRelease
-
       
         
         
