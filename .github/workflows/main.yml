@@ -16,20 +16,17 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     
-    Tests:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Check out code
-        - uses: actions/checkout@v2
-        
-        - name: Set up node
-          uses: actions/setup-node@v1
-          
-        - name: Install dependencies
-          run: npm install
-        
-        - name: Run tests
-          run: npm test
+    test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: subosito/flutter-action@v1.5.3
+      - name: Install packages
+        run: flutter pub get
+      - name: Run generator
+        run: flutter pub run build_runner build
+      - name: Run test
+        run: flutter test test
   
     Apple:
       runs-on: macOS-latest
