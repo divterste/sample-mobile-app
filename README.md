@@ -1,3 +1,10 @@
+# How I solved the assignment 
+
+1. Used Fork to create a new repository
+2. Created new GitHub Workflow (actions)
+3. Created seperate "jobs" for Android & iOS and named them Google and Apple respectively
+5. Continous integration that builds & produces for both Android & iOS
+
 # sample-mobile-app
 This is a sample mobile app built with react native
 
