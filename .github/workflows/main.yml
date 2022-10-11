@@ -21,7 +21,7 @@ jobs:
       
       steps:
         - uses: actions/checkout@v3
-        - name: Build app
+        - name: Build & Produce
           run: |
             cd ios && xcodebuild archive \
               -workspace appname.xcworkspace \
@@ -47,10 +47,8 @@ jobs:
         - name: Initialize gradle
           run: gradle init
 
-        - name: Build the app
-          run: |
-            ./gradlew build \
-            build-type: assemble
+        - name: Build & Produce
+          run: ./gradlew build 
       
         
         
